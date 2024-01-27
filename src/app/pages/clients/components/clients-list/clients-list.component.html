@@ -1,19 +1,24 @@
-<div class="flex flex-column align-items-center justify-content-center">
+<div style="border: 2px solid #00a3e0; margin-top: 2%">
   <p-table [value]="products" [tableStyle]="{ 'min-width': '20rem' }">
     <ng-template pTemplate="header">
       <tr>
-        <th>Code</th>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Quantity</th>
+        <th>კლიენტის ნომერი</th>
+        <th>სახელი</th>
+        <th>გვარი</th>
+        <th>სქესი</th>
+        <th>პირადი ნომერი</th>
+        <th>მობილური</th>
+        <th>იურიდიული მისამართი</th>
+        <th>ფაქტიური მისამართი</th>
+        <th>ფოტოსურათი</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-product>
+    <ng-template pTemplate="body" let-user>
       <tr>
-        <td>{{ product.code }}</td>
-        <td>{{ product.name }}</td>
-        <td>{{ product.category }}</td>
-        <td>{{ product.quantity }}</td>
+        <td>{{ user.code }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.category }}</td>
+        <td>{{ user.quantity }}</td>
       </tr>
     </ng-template>
   </p-table>

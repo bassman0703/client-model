@@ -1,1 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+  --primary: #00a3e0;
+  --text-color: black;
+  --heading-color: #717B8F;
+}
+
+
+.ant-menu-item-selected, .ant-menu-submenu-selected{
+  svg{
+    path{
+      stroke: var(--primary);
+    }
+  }
+}
+input[type="checkbox"] {
+  //filter: hue-rotate(328deg) brightness(1.1);
+  cursor: pointer;
+  //vertical-align: middle;
+  //opacity: 1;
+
+}
+
+.ant-checkbox {
+  border: 1px solid #999CA0;
+  opacity: 1;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.ant-checkbox-checked {
+  background-color: #00a3e0;
+  font-size: 2px;
+}
+.action_btn {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  background: #F0F0F0;
+  border-radius: 5px;
+  border: none;
+  &:hover {
+    opacity: .85;
+    -moz-opacity: .85;
+  }
+  svg{
+    fill: none;
+  }
+}
+td {
+  color: #00a3e0;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.filled-eyes-icon svg {
+  color: #00a3e0;
+}
+
+.ant-modal-close,
+.ant-drawer-close{
+  svg {
+    fill: none;
+  }
+}
