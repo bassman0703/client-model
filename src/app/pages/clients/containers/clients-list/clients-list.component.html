@@ -1,0 +1,62 @@
+<div style="border: 2px solid #00a3e0; margin-top: 2%">
+  <p-table [value]="users" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        <p-button (click)="add()" >დამატება</p-button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>კლიენტის ნომერი</th>
+        <th>სახელი</th>
+        <th>გვარი</th>
+        <th>სქესი</th>
+        <th>პირადი ნომერი</th>
+        <th>მობილური</th>
+        <th>იურიდიული მისამართი</th>
+        <th>ფაქტიური მისამართი</th>
+        <th>ფოტოსურათი</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-users>
+      <tr>
+        <td>{{ users?.clientNumber }}</td>
+        <td>{{ users?.firsName }}</td>
+        <td>{{ users?.lastName }}</td>
+        <td>{{ users?.gender}}</td>
+        <td>{{ users?.personalNumber }}</td>
+        <td>{{ users?.phoneNumber }}</td>
+        <td>{{ users?.legalAddress }}</td>
+        <td>{{ users?.actualAddress }}</td>
+        <td>{{ users?.img }}</td>
+        <td>
+          <button
+            pButton
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success mr-2"
+            (click)="editUser(users)"
+          >
+          </button>
+          <button
+            pButton
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning mr-2"
+            (click)="delete(users)"
+          >
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<app-add-or-edit-client
+  [displayAddModal]="displayAddModal"
+  [selectedUser]="selectedUser"
+  (clickClose)="hideAddModal($event)"
+  (clicAddEdit)="saveOrUpdateList($event)"
+></app-add-or-edit-client>
+
+<p-confirmDialog header="Delete"></p-confirmDialog>
+<p-toast position="top-right"></p-toast>

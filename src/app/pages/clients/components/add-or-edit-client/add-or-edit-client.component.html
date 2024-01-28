@@ -1,0 +1,100 @@
+<p-dialog
+  header="{{modalType}}"
+  [(visible)]="displayAddModal"
+  [modal]="true"
+  [style]="{width: '30vw'}"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="closeModal()"
+>
+  <form [formGroup]="form" class="user-form">
+    <div class="formgrid grid">
+      <div class="field col-6">
+        <div class="text-center p-3 border-round-sm  ">
+            <label for="clientNumber" class="block"> კლიენტის ნომერი </label>
+            <input id="clientNumber" formControlName="clientNumber" type="number" pInputText/>
+            <small class="p-error block"
+                   *ngIf="form.controls['clientNumber'].invalid && form.controls['clientNumber'].dirty"> Field is
+              required</small>
+        </div>
+      </div>
+      <div class="field col-6">
+        <div class="text-center p-3 ">
+          <label for="firsName" class="block"> სახელი </label>
+          <input id="firsName" formControlName="firsName" type="text" pInputText/>
+          <small class="p-error block" *ngIf="form.controls['firsName'].invalid && form.controls['firsName'].dirty">
+            Field
+            is required</small>
+
+        </div>
+      </div>
+      <div class="field col-6">
+        <div class="text-center p-3 ">
+          <label for="lastName" class="block"> გვარი </label>
+          <input id="lastName" formControlName="lastName" type="text" pInputText/>
+          <small class="p-error block" *ngIf="form.controls['lastName'].invalid && form.controls['lastName'].dirty">
+            Field
+            is required</small>
+        </div>
+      </div>
+      <div class="field col-6">
+        <div class="text-center p-3 " >
+          <label for="gender" class="block"> სქესი </label>
+          <p-dropdown  id="gender" optionLabel="name"></p-dropdown>
+<!--          <input id="gender" formControlName="gender" type="text" pInputText/>-->
+          <small class="p-error block" *ngIf="form.controls['gender'].invalid && form.controls['gender'].dirty"> Field
+            is required</small>
+        </div>
+      </div>
+      <div class="field col">
+        <div class="text-center p-3 ">
+          <label for="personalNumber" class="block"> პირადი ნომერი </label>
+          <input id="personalNumber" formControlName="personalNumber" type="number" pInputText/>
+          <small class="p-error block"
+                 *ngIf="form.controls['personalNumber'].invalid && form.controls['personalNumber'].dirty"> Field
+            is required</small>
+        </div>
+      </div>
+      <div class="field col">
+        <div class="text-center p-3 ">
+          <label for="phoneNumber" class="block"> ტელეფონის ნომერი </label>
+          <input id="phoneNumber" formControlName="phoneNumber" type="number" pInputText/>
+          <small class="p-error block" *ngIf="form.controls['phoneNumber'].invalid && form.controls['phoneNumber'].dirty">
+            Field
+            is required</small>
+        </div>
+      </div>      <div class="field col">
+        <div class="text-center p-3 ">
+          <label for="legalAddress" class="block"> ტელეფონის ნომერი </label>
+          <input id="legalAddress" formControlName="legalAddress" type="text" pInputText/>
+          <small class="p-error block" *ngIf="form.controls['legalAddress'].invalid && form.controls['legalAddress'].dirty">
+            Field
+            is required</small>
+        </div>
+      </div>
+      <div class="field col">
+        <div class="text-center p-3 ">
+          <label for="actualAddress" class="block"> ტელეფონის ნომერი </label>
+          <input id="actualAddress" formControlName="actualAddress" type="text" pInputText/>
+          <small class="p-error block"
+                 *ngIf="form.controls['actualAddress'].invalid && form.controls['actualAddress'].dirty">
+            Field
+            is required</small>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <ng-template pTemplate="footer">
+    <p-button
+      (click)="closeModal()"
+      label="გაუქმება"
+      styleClass="p-button-text"
+    ></p-button>
+    <p-button
+      (click)="addEditUser()"
+      [disabled]="form.invalid"
+      label="{{modalType}}"
+    ></p-button>
+  </ng-template>
+</p-dialog>
