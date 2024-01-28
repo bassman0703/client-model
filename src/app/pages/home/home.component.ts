@@ -11,7 +11,8 @@ import { HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     ClientsListComponent,
     CardModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

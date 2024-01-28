@@ -4,8 +4,10 @@ import {ButtonModule} from "primeng/button";
 import {CardModule} from "primeng/card";
 import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "../../../../core/services/user.service";
-import {NgForOf} from "@angular/common";
 import {User} from "../../../../core/interfaces";
+import {json} from "express";
+import {async} from "rxjs";
+import {AsyncPipe, NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-clients-list',
@@ -15,13 +17,14 @@ import {User} from "../../../../core/interfaces";
     ButtonModule,
     CardModule,
     HttpClientModule,
-    NgForOf
+    AsyncPipe,
+    NgForOf,
   ],
   templateUrl: './clients-list.component.html',
   styleUrl: './clients-list.component.scss'
 })
 export class ClientsListComponent implements OnInit {
-  loadData: any
+  users!: User
 
   constructor(
     private userService: UserService
@@ -29,27 +32,14 @@ export class ClientsListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getUserLists()
+    this.userService.getUserList().subscribe(
+      (res) =>
+      {
+        this.users = res
+        console.log('resss',res)
+      }
+    )
   }
 
-  // getUserLists() {
-  //   this.userService.getUserList().subscribe({
-  //     next: (res) => {
-  //       console.log(res)
-  //     },
-  //     error: (err) => {
-  //       console.log(err)
-  //     }
-  //   })
-  // }
-  getUserLists() {
-    this.userService
-      .getUserList()
-      .subscribe(
-        (res: User) => {
-          this.loadData = res
-        }
-      )
-  }
-
+  protected readonly json = json;
 }
