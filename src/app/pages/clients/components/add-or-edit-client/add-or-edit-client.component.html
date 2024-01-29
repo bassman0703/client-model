@@ -2,7 +2,7 @@
   header="{{modalType}}"
   [(visible)]="displayAddModal"
   [modal]="true"
-  [style]="{width: '30vw'}"
+  [style]="{width: '40vw'}"
   [draggable]="false"
   [resizable]="false"
   (onHide)="closeModal()"
@@ -49,15 +49,15 @@
             is required</small>
         </div>
       </div>
-<!--      <div class="field col-6">-->
-<!--        <div class="text-center p-3 ">-->
-<!--          <label for="gender" class="block"> სქესი </label>-->
-<!--          <p-dropdown data id="gender" optionLabel="name"></p-dropdown>-->
-<!--          &lt;!&ndash;          <input id="gender" formControlName="gender" type="text" pInputText/>&ndash;&gt;-->
-<!--          <small class="p-error block" *ngIf="form.controls['gender'].invalid && form.controls['gender'].dirty"> Field-->
-<!--            is required</small>-->
-<!--        </div>-->
-<!--      </div>-->
+      <!--      <div class="field col-6">-->
+      <!--        <div class="text-center p-3 ">-->
+      <!--          <label for="gender" class="block"> სქესი </label>-->
+      <!--          <p-dropdown data id="gender" optionLabel="name"></p-dropdown>-->
+      <!--          &lt;!&ndash;          <input id="gender" formControlName="gender" type="text" pInputText/>&ndash;&gt;-->
+      <!--          <small class="p-error block" *ngIf="form.controls['gender'].invalid && form.controls['gender'].dirty"> Field-->
+      <!--            is required</small>-->
+      <!--        </div>-->
+      <!--      </div>-->
       <div class="field col">
         <div class="text-center p-3 ">
           <label for="personalNumber" class="block"> პირადი ნომერი </label>
@@ -77,37 +77,91 @@
             is required</small>
         </div>
       </div>
-      <div class="field col">
-        <div class="text-center p-3 ">
-          <label for="legalAddress" class="block"> ტელეფონის ნომერი </label>
-          <input id="legalAddress" formControlName="legalAddress" type="text" pInputText/>
-          <small class="p-error block"
-                 *ngIf="form.controls['legalAddress'].invalid && form.controls['legalAddress'].dirty">
-            Field
-            is required</small>
+
+      <p-card>
+        <p>იურიდიულლი მისამსართი</p>
+        <div class="formgrid grid">
+          <div class="field col-4">
+            <div class="text-center p-3 ">
+              <label for="legalCountry" class="block"> ქვეყანა </label>
+              <input id="legalCountry" formControlName="legalCountry" type="text" pInputText/>
+              <small class="p-error block"
+                     *ngIf="form.controls['legalCountry'].invalid && form.controls['legalCountry'].dirty">
+                Field
+                is required</small>
+            </div>
+          </div>
+          <div class="field col-4">
+            <div class="text-center p-3 ">
+              <label for="legalCity" class="block"> ქალაქი </label>
+              <input id="legalCity" formControlName="legalCity" type="text" pInputText/>
+              <small class="p-error block"
+                     *ngIf="form.controls['legalCity'].invalid && form.controls['legalCity'].dirty">
+                Field
+                is required</small>
+            </div>
+          </div>
+          <div class="field col-4">
+            <div class="text-center p-3 ">
+              <label for="legalAddress" class="block"> მისამართი </label>
+              <input id="legalAddress" formControlName="legalAddress" type="text" pInputText/>
+              <small class="p-error block"
+                     *ngIf="form.controls['legalAddress'].invalid && form.controls['legalAddress'].dirty">
+                Field
+                is required</small>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="field col">
-        <div class="text-center p-3 ">
-          <label for="actualAddress" class="block"> ტელეფონის ნომერი </label>
-          <input id="actualAddress" formControlName="actualAddress" type="text" pInputText/>
-          <small class="p-error block"
-                 *ngIf="form.controls['actualAddress'].invalid && form.controls['actualAddress'].dirty">
-            Field
-            is required</small>
+
+      </p-card>
+      <p-card>
+        <p>ფაქტიური მისამსართი</p>
+        <div class="formgrid grid">
+          <div class="field col-4">
+            <div class="text-center p-3 ">
+              <label for="actualCountry" class="block"> ქვეყანა </label>
+              <input id="actualCountry" formControlName="actualCountry" type="text" pInputText/>
+              <small class="p-error block"
+                     *ngIf="form.controls['actualCountry'].invalid && form.controls['actualCountry'].dirty">
+                Field
+                is required</small>
+            </div>
+          </div>
+          <div class="field col-4">
+            <div class="text-center p-3 ">
+              <label for="actualCity" class="block"> ქალაქი </label>
+              <input id="actualCity" formControlName="actualCity" type="text" pInputText/>
+              <small class="p-error block"
+                     *ngIf="form.controls['actualCity'].invalid && form.controls['actualCity'].dirty">
+                Field
+                is required</small>
+            </div>
+          </div>
+          <div class="field col-4">
+            <div class="text-center p-3 ">
+              <label for="actualAddress" class="block"> მისამართი </label>
+              <input id="actualAddress" formControlName="actualAddress" type="text" pInputText/>
+              <small class="p-error block"
+                     *ngIf="form.controls['actualAddress'].invalid && form.controls['actualAddress'].dirty">
+                Field
+                is required</small>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="field col">
-        <div class="text-center p-3 ">
-          <label for="actualAddress" class="block"> ტელეფონის ნომერი </label>
-          <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" [auto]="true"
-                        chooseLabel="Browse"></p-fileUpload>
-          <small class="p-error block"
-                 *ngIf="form.controls['actualAddress'].invalid && form.controls['actualAddress'].dirty">
-            Field
-            is required</small>
-        </div>
-      </div>
+
+      </p-card>
+
+      <!--      <div class="field col">-->
+      <!--        <div class="text-center p-3 ">-->
+      <!--          <label for="actualAddress" class="block"> ტელეფონის ნომერი </label>-->
+      <!--          <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" [auto]="true"-->
+      <!--                        chooseLabel="Browse"></p-fileUpload>-->
+      <!--          <small class="p-error block"-->
+      <!--                 *ngIf="form.controls['actualAddress'].invalid && form.controls['actualAddress'].dirty">-->
+      <!--            Field-->
+      <!--            is required</small>-->
+      <!--        </div>-->
+      <!--      </div>-->
     </div>
   </form>
 

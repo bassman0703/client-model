@@ -1,9 +1,21 @@
-import { Routes } from '@angular/router';
-import {HomeComponent} from "./pages/home/home.component";
+import {Routes} from '@angular/router';
+import {AccountsComponent} from "./pages/accounts/containers/accounts/accounts.component";
 
-export const routes: Routes = [
+
+export const appRoutes: Routes = [
+
   {
     path: '',
-    component: HomeComponent
+    component: AccountsComponent,
+    children: [
+      {
+        path: 'home',
+        loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
+      },
+      {
+        path: 'accounts',
+        loadComponent: () => import('./pages/accounts/containers/accounts/accounts.component').then(m => m.AccountsComponent)
+      }
+    ]
   }
 ];

@@ -6,8 +6,12 @@ export interface User {
   "gender": string,
   "personalNumber": number,
   "phoneNumber": number,
+  "legalCountry": string,
+  "legalCity": string,
   "legalAddress": string,
-  "actualAddress": string,
+  "actualCountry": string,
+  "actualCity": string,
+  "actualAddress": string
   img: string
 }
 

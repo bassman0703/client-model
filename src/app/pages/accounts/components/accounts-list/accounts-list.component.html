@@ -1,0 +1,79 @@
+<div style="border: 2px solid #00a3e0; margin-top: 2%">
+  <p-table
+    [value]="accounts"
+    [paginator]="true"
+    [scrollable]="true"
+    scrollHeight="70vh"
+    [rows]="request.last"
+    [first]="request.first"
+    [lazy]="true"
+    (onLazyLoad)="loadAccount($event)"
+    [totalRecords]="20"
+    [customSort]="true"
+    (sortFunction)="loadAccount($event)"
+    [tableStyle]="{ 'min-width': '50rem' }"
+  >
+    <ng-template pTemplate="caption" >
+      <div class="flex align-items-center justify-content-between">
+        <div>
+          <input
+            pInputText
+            type="text"
+            (input)="filteraccount()"
+            placeholder="search"
+            [(ngModel)]="globalFilter"
+          />
+        </div>
+        <div class="flex align-items-center justify-content-between">
+          <p-button pButton
+                    class="p-button-rounded" icon="pi pi-plus" (click)="add()"></p-button>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ანგარიშის ნომერი</th>
+        <th>კლიენტის ნომერი</th>
+        <th>ანგარიშის ტიპი</th>
+        <th>ვალუტა</th>
+        <th>ანგარიშის სტატუსი</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-accounts>
+      <tr>
+        <td>{{ accounts?.accountNumber }}</td>
+        <td>{{ accounts?.clientNumber }}</td>
+        <td>{{ accounts?.accountType }}</td>
+        <td>{{ accounts?.currency}}</td>
+        <td>{{ accounts?.accountStatus }}</td>
+        <td>
+          <button
+            pButton
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success mr-2"
+            (click)="editAccount(accounts)"
+          >
+          </button>
+          <button
+            pButton
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning mr-2"
+            (click)="delete(accounts)"
+          >
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<app-add-edit-accounts
+  [displayAddModal]="displayAddModal"
+  [selectedAccount]="selectedAccount"
+  (clickClose)="hideAddModal($event)"
+  (clicAddEdit)="saveOrUpdateList($event)"
+></app-add-edit-accounts>
+
+<p-confirmDialog header="Delete"></p-confirmDialog>
+<p-toast position="top-right"></p-toast>

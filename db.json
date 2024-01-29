@@ -35,120 +35,22 @@
       "gender": "male",
       "personalNumber": 213123123123,
       "phoneNumber": 3213123123,
-      "legalAddress": "3213123",
-      "actualAddress": "3123213",
-      "img": null,
+      "legalCountry": "საქართველო",
+      "legalCity": "თბილისი",
+      "legalAddress": "წერეთლის 5",
+      "actualCountry": "საქართველო",
+      "actualCity": "თბილისიsddsf",
+      "actualAddress": "წერეთლის 5",
       "id": "6953"
-    },
+    }
+  ],
+  "accounts": [
     {
-      "clientNumber": 2343242,
-      "firsName": "dasdas",
-      "lastName": "dasdas",
-      "gender": "male",
-      "personalNumber": 213123123123,
-      "phoneNumber": 3213123123,
-      "legalAddress": "3213123",
-      "actualAddress": "3123213",
-      "id": "6957"
-    },
-    {
-      "clientNumber": 2343242555444,
-      "firsName": "dasdas",
-      "lastName": "dasdas",
-      "gender": "male",
-      "personalNumber": 213123123123,
-      "phoneNumber": 3213123123,
-      "legalAddress": "3213123",
-      "actualAddress": "3123213",
-      "id": "6954"
-    },
-    {
-      "clientNumber": 2343242555444,
-      "firsName": "dasdas",
-      "lastName": "dasdas",
-      "gender": "male",
-      "personalNumber": 213123123123,
-      "phoneNumber": 3213123123,
-      "legalAddress": "3213123",
-      "actualAddress": "3123213",
-      "id": "6954"
-    },
-    {
-      "clientNumber": 2343242555444,
-      "firsName": "dasdas",
-      "lastName": "dasdas",
-      "gender": "male",
-      "personalNumber": 213123123123,
-      "phoneNumber": 3213123123,
-      "legalAddress": "3213123",
-      "actualAddress": "3123213",
-      "id": "6957"
-    },
-    {
-      "clientNumber": 2343242555444,
-      "firsName": "dasdas",
-      "lastName": "dasdas",
-      "gender": "male",
-      "personalNumber": 213123123123,
-      "phoneNumber": 3213123123,
-      "legalAddress": "3213123",
-      "actualAddress": "3123213",
-      "id": "6954"
-    },
-    {
-      "clientNumber": 2343242555444,
-      "firsName": "dasdas",
-      "lastName": "dasdas",
-      "gender": "male",
-      "personalNumber": 213123123123,
-      "phoneNumber": 3213123123,
-      "legalAddress": "3213123",
-      "actualAddress": "3123213",
-      "id": "6954"
-    },
-    {
-      "clientNumber": 2343242555444,
-      "firsName": "dasdas",
-      "lastName": "dasdas",
-      "gender": "male",
-      "personalNumber": 213123123123,
-      "phoneNumber": 3213123123,
-      "legalAddress": "3213123",
-      "actualAddress": "3123213",
-      "id": "6954"
-    },
-    {
-      "clientNumber": 2343242555444,
-      "firsName": "dasdas",
-      "lastName": "dasdas",
-      "gender": "male",
-      "personalNumber": 213123123123,
-      "phoneNumber": 3213123123,
-      "legalAddress": "3213123",
-      "actualAddress": "3123213",
-      "id": "6954"
-    },
-    {
-      "clientNumber": 2343242555444,
-      "firsName": "dasdas",
-      "lastName": "dasdas",
-      "gender": "male",
-      "personalNumber": 213123123123,
-      "phoneNumber": 3213123123,
-      "legalAddress": "3213123",
-      "actualAddress": "3123213",
-      "id": "6954"
-    },
-    {
-      "clientNumber": 2343242555444,
-      "firsName": "dasdas",
-      "lastName": "dasdas",
-      "gender": "male",
-      "personalNumber": 213123123123,
-      "phoneNumber": 3213123123,
-      "legalAddress": "3213123",
-      "actualAddress": "3123213",
-      "id": "6954"
+      "accountNumber": 324234234,
+      "clientNumber": 4233333,
+      "currency": "USD",
+      "accountType": "მიმდინარე,",
+      "accountStatus": "აქტიური"
     }
   ]
 }

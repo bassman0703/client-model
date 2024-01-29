@@ -1,22 +1,23 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
-import {CommonModule} from "@angular/common";
 import {ButtonModule} from "primeng/button";
-import {DialogModule} from "primeng/dialog";
-import {HttpClient} from "@angular/common/http";
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {InputTextModule} from "primeng/inputtext";
-import {InputNumberModule} from "primeng/inputnumber";
-import {FocusTrapModule} from "primeng/focustrap";
-import {UserService} from "../../../../core/services";
 import {MessageService} from "primeng/api";
 import {ToastModule} from "primeng/toast";
-import { DropdownModule} from "primeng/dropdown";
-import {genders} from "../../../../core/enums/gender";
-import {FileUploadModule} from "primeng/fileupload";
+import {CommonModule} from "@angular/common";
 import {CardModule} from "primeng/card";
+import {DialogModule} from "primeng/dialog";
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {DropdownModule} from "primeng/dropdown";
+import {InputNumberModule} from "primeng/inputnumber";
+import {FocusTrapModule} from "primeng/focustrap";
+import {FileUploadModule} from "primeng/fileupload";
+import {AccountService} from "../../../../core/services/account.service";
+import {accountStatus} from "../../../../core/enums/account-status";
+import {currency} from "../../../../core/enums/currency";
+import {accountType} from "../../../../core/enums/account-type";
 
 @Component({
-  selector: 'app-add-or-edit-client',
+  selector: 'app-add-edit-accounts',
   standalone: true,
   imports: [
     CommonModule,
@@ -31,55 +32,47 @@ import {CardModule} from "primeng/card";
     ToastModule,
     FileUploadModule,
     CardModule,
-
   ],
-  providers: [HttpClient, MessageService],
-  templateUrl: './add-or-edit-client.component.html',
-  styleUrl: './add-or-edit-client.component.scss'
+  templateUrl: './add-edit-accounts.component.html',
+  styleUrl: './add-edit-accounts.component.scss'
 })
-export class AddOrEditClientComponent implements OnInit, OnChanges {
+export class AddEditAccountsComponent implements OnInit, OnChanges {
   @Input() displayAddModal: boolean = true;
-  @Input() selectedUser: any = null;
+  @Input() selectedAccount: any = null;
   @Output() clickClose: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() clicAddEdit: EventEmitter<any> = new EventEmitter<any>();
   modalType = "დამატება"
-  genders$ = genders;
+  accountTypes$ = accountType;
+  accountStatus$ = accountStatus;
+  currency$ = currency;
   form: FormGroup = this.fb.group({
+    accountNumber: ["", Validators.required],
     clientNumber: ["", Validators.required],
-    firsName: ["", Validators.required],
-    lastName: ["", Validators.required],
-    gender: [""],
-    personalNumber: ["", Validators.required],
-    phoneNumber: ["", Validators.required],
-    legalCountry: ["", Validators.required],
-    legalCity: ["", Validators.required],
-    legalAddress: ["", Validators.required],
-    actualCountry: ["", Validators.required],
-    actualCity: ["", Validators.required],
-    actualAddress: ["", Validators.required],
-
+    currency: ["", Validators.required],
+    accountType: ["", Validators.required],
+    accountStatus: ["", Validators.required],
   })
 
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserService,
+    private accountService: AccountService,
     private messageService: MessageService
   ) {
   }
 
   ngOnInit() {
   }
-ngOnChanges() {
-    if (this.selectedUser){
+  ngOnChanges() {
+    if (this.selectedAccount){
       this.modalType = "რედაქტირება"
-      this.form.patchValue(this.selectedUser)
+      this.form.patchValue(this.selectedAccount)
     } else {
       this.form.reset();
       this.modalType = "დამატება"
 
     }
-}
+  }
 
   closeModal() {
     this.form.reset()
@@ -87,9 +80,9 @@ ngOnChanges() {
 
   }
 
-  addEditUser() {
+  addEditAccount() {
     console.log(this.form.value)
-    this.userService.addEditUser(this.form.value, this.selectedUser).subscribe(
+    this.accountService.addEditAccount(this.form.value, this.selectedAccount).subscribe(
       res =>{
         this.clicAddEdit.emit(res)
         this.closeModal()

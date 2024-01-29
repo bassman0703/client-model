@@ -1,0 +1,87 @@
+<p-dialog
+  header="{{modalType}}"
+  [(visible)]="displayAddModal"
+  [modal]="true"
+  [style]="{width: '40vw'}"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="closeModal()"
+>
+  <form [formGroup]="form" class="user-form">
+    <div class="formgrid grid">
+      <div class="field col-6">
+        <div class="text-center p-3 border-round-sm  ">
+          <label for="accountNumber" class="block"> ანგარიშის ნომერი </label>
+          <input id="accountNumber" formControlName="accountNumber" type="number" pInputText/>
+          <small class="p-error block"
+                 *ngIf="form.controls['accountNumber'].invalid && form.controls['accountNumber'].dirty"> Field is
+            required</small>
+        </div>
+      </div>
+      <div class="field col-6">
+        <div class="text-center p-3 ">
+          <label for="clientNumber" class="block"> კლიენტის ნომერი </label>
+          <input id="clientNumber" formControlName="clientNumber" type="number" pInputText/>
+          <small class="p-error block" *ngIf="form.controls['clientNumber'].invalid && form.controls['clientNumber'].dirty">
+            Field
+            is required</small>
+
+        </div>
+      </div>
+
+      <div class="field col-6">
+        <div class="text-center p-3 ">
+          <label for="accountType" class="block"> ანგარიშის ტიპი </label>
+          <p-dropdown
+            [options]="accountTypes$"
+            id="accountType"
+            optionLabel="name"
+            formControlName="accountType"
+
+          ></p-dropdown>
+          <small class="p-error block" *ngIf="form.controls['accountType'].invalid && form.controls['accountType'].dirty"> Field
+            is required</small>
+        </div>
+      </div>
+      <div class="field col-6">
+        <div class="text-center p-3 ">
+          <label for="currency" class="block"> ვალუტა </label>
+          <p-dropdown
+            [options]="currency$"
+            id="currency"
+            optionLabel="name"
+            formControlName="currency"
+          ></p-dropdown>
+          <small class="p-error block" *ngIf="form.controls['currency'].invalid && form.controls['currency'].dirty"> Field
+            is required</small>
+        </div>
+      </div>
+      <div class="field col-6">
+        <div class="text-center p-3 ">
+          <label for="accountStatus" class="block"> ანგარიშის სტატუსი </label>
+          <p-dropdown
+            [options]="accountStatus$"
+            id="accountStatus"
+            formControlName="accountStatus"
+            optionLabel="name"
+          ></p-dropdown>
+          <small class="p-error block" *ngIf="form.controls['accountStatus'].invalid && form.controls['accountStatus'].dirty"> Field
+            is required</small>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <ng-template pTemplate="footer">
+    <p-button
+      (click)="closeModal()"
+      label="გაუქმება"
+      styleClass="p-button-text"
+    ></p-button>
+    <p-button
+      (click)="addEditAccount()"
+      [disabled]="form.invalid"
+      label="{{modalType}}"
+    ></p-button>
+  </ng-template>
+</p-dialog>
