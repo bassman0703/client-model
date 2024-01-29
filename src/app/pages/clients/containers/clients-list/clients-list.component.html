@@ -1,14 +1,46 @@
 <div style="border: 2px solid #00a3e0; margin-top: 2%">
-  <p-table [value]="users" [tableStyle]="{ 'min-width': '50rem' }">
-    <ng-template pTemplate="caption">
+  <p-table
+    [value]="users"
+    [paginator]="true"
+    [scrollable]="true"
+    scrollHeight="70vh"
+    [rows]="request.last"
+    [first]="request.first"
+    [lazy]="true"
+    (onLazyLoad)="loadUsers($event)"
+    [totalRecords]="20"
+    [customSort]="true"
+    (sortFunction)="loadUsers($event)"
+    [tableStyle]="{ 'min-width': '50rem' }"
+  >
+    <ng-template pTemplate="caption" >
       <div class="flex align-items-center justify-content-between">
-        <p-button (click)="add()" >დამატება</p-button>
+      <div>
+        <input
+          pInputText
+          type="text"
+          (input)="filterUsers()"
+          placeholder="search"
+          [(ngModel)]="globalFilter"
+        />
+      </div>
+      <div class="flex align-items-center justify-content-between">
+        <p-button pButton
+                  class="p-button-rounded" icon="pi pi-plus" (click)="add()"></p-button>
+      </div>
       </div>
     </ng-template>
     <ng-template pTemplate="header">
       <tr>
-        <th>კლიენტის ნომერი</th>
-        <th>სახელი</th>
+        <th pSortableColumn="clientNumber">
+          კლიენტის ნომერი
+          <p-sortIcon field="clientNumber"></p-sortIcon>
+        </th>
+        <th
+          pSortableColumn="clientNumber"
+        >სახელი
+          <p-sortIcon field="clientNumber"></p-sortIcon>
+        </th>
         <th>გვარი</th>
         <th>სქესი</th>
         <th>პირადი ნომერი</th>

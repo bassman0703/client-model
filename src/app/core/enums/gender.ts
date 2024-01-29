@@ -1,11 +1,16 @@
-import {Dropdown} from "primeng/dropdown";
+import {Dropdown} from "../interfaces/dropdown";
 
 export const genders: Dropdown[] = [
-  // {
-  //   label: 'MALE',
-  //   value: 'male',
-  // },
-  // {
-  //   value: 'female',
-  // }
+  {
+    value: '',
+    alias: '',
+  },
+  {
+    value: 'MALE',
+    alias: 'მამრობითი',
+  },
+  {
+    value: 'FEMALE',
+    alias: 'მდედრობითი',
+  }
 ];

@@ -11,11 +11,11 @@
     <div class="formgrid grid">
       <div class="field col-6">
         <div class="text-center p-3 border-round-sm  ">
-            <label for="clientNumber" class="block"> კლიენტის ნომერი </label>
-            <input id="clientNumber" formControlName="clientNumber" type="number" pInputText/>
-            <small class="p-error block"
-                   *ngIf="form.controls['clientNumber'].invalid && form.controls['clientNumber'].dirty"> Field is
-              required</small>
+          <label for="clientNumber" class="block"> კლიენტის ნომერი </label>
+          <input id="clientNumber" formControlName="clientNumber" type="number" pInputText/>
+          <small class="p-error block"
+                 *ngIf="form.controls['clientNumber'].invalid && form.controls['clientNumber'].dirty"> Field is
+            required</small>
         </div>
       </div>
       <div class="field col-6">
@@ -38,14 +38,26 @@
         </div>
       </div>
       <div class="field col-6">
-        <div class="text-center p-3 " >
+        <div class="text-center p-3 ">
           <label for="gender" class="block"> სქესი </label>
-          <p-dropdown  id="gender" optionLabel="name"></p-dropdown>
-<!--          <input id="gender" formControlName="gender" type="text" pInputText/>-->
+          <p-dropdown
+            [options]="genders$"
+            id="gender"
+            optionLabel="alias"
+          ></p-dropdown>
           <small class="p-error block" *ngIf="form.controls['gender'].invalid && form.controls['gender'].dirty"> Field
             is required</small>
         </div>
       </div>
+<!--      <div class="field col-6">-->
+<!--        <div class="text-center p-3 ">-->
+<!--          <label for="gender" class="block"> სქესი </label>-->
+<!--          <p-dropdown data id="gender" optionLabel="name"></p-dropdown>-->
+<!--          &lt;!&ndash;          <input id="gender" formControlName="gender" type="text" pInputText/>&ndash;&gt;-->
+<!--          <small class="p-error block" *ngIf="form.controls['gender'].invalid && form.controls['gender'].dirty"> Field-->
+<!--            is required</small>-->
+<!--        </div>-->
+<!--      </div>-->
       <div class="field col">
         <div class="text-center p-3 ">
           <label for="personalNumber" class="block"> პირადი ნომერი </label>
@@ -59,15 +71,18 @@
         <div class="text-center p-3 ">
           <label for="phoneNumber" class="block"> ტელეფონის ნომერი </label>
           <input id="phoneNumber" formControlName="phoneNumber" type="number" pInputText/>
-          <small class="p-error block" *ngIf="form.controls['phoneNumber'].invalid && form.controls['phoneNumber'].dirty">
+          <small class="p-error block"
+                 *ngIf="form.controls['phoneNumber'].invalid && form.controls['phoneNumber'].dirty">
             Field
             is required</small>
         </div>
-      </div>      <div class="field col">
+      </div>
+      <div class="field col">
         <div class="text-center p-3 ">
           <label for="legalAddress" class="block"> ტელეფონის ნომერი </label>
           <input id="legalAddress" formControlName="legalAddress" type="text" pInputText/>
-          <small class="p-error block" *ngIf="form.controls['legalAddress'].invalid && form.controls['legalAddress'].dirty">
+          <small class="p-error block"
+                 *ngIf="form.controls['legalAddress'].invalid && form.controls['legalAddress'].dirty">
             Field
             is required</small>
         </div>
@@ -76,6 +91,17 @@
         <div class="text-center p-3 ">
           <label for="actualAddress" class="block"> ტელეფონის ნომერი </label>
           <input id="actualAddress" formControlName="actualAddress" type="text" pInputText/>
+          <small class="p-error block"
+                 *ngIf="form.controls['actualAddress'].invalid && form.controls['actualAddress'].dirty">
+            Field
+            is required</small>
+        </div>
+      </div>
+      <div class="field col">
+        <div class="text-center p-3 ">
+          <label for="actualAddress" class="block"> ტელეფონის ნომერი </label>
+          <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" [auto]="true"
+                        chooseLabel="Browse"></p-fileUpload>
           <small class="p-error block"
                  *ngIf="form.controls['actualAddress'].invalid && form.controls['actualAddress'].dirty">
             Field

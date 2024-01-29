@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {TableModule} from "primeng/table";
+import {TableLazyLoadEvent, TableModule} from "primeng/table";
 import {CardModule} from "primeng/card";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule, HttpErrorResponse} from "@angular/common/http";
 import {UserService} from "../../../../core/services/user.service";
-import {User} from "../../../../core/interfaces";
+import {User, UserRequest} from "../../../../core/interfaces";
 import {DialogModule} from "primeng/dialog";
 import {ConfirmDialogModule} from "primeng/confirmdialog";
 import {CommonModule} from "@angular/common";
@@ -11,6 +11,9 @@ import {AddOrEditClientComponent} from "../../components/add-or-edit-client/add-
 import {ButtonModule} from "primeng/button";
 import {ToastModule} from "primeng/toast";
 import {ConfirmationService, MessageService} from "primeng/api";
+import {first} from "rxjs";
+import {InputTextModule} from "primeng/inputtext";
+import {FormsModule} from "@angular/forms";
 
 
 @Component({
@@ -25,7 +28,9 @@ import {ConfirmationService, MessageService} from "primeng/api";
     DialogModule,
     ConfirmDialogModule,
     ToastModule,
+    InputTextModule,
     AddOrEditClientComponent,
+    FormsModule,
 
   ],
   providers: [HttpClient, MessageService, ConfirmationService],
@@ -33,11 +38,21 @@ import {ConfirmationService, MessageService} from "primeng/api";
   templateUrl: './clients-list.component.html',
   styleUrl: './clients-list.component.scss'
 })
-export class ClientsListComponent implements OnInit {
+export class ClientsListComponent {
   users: User[] = []
+  globalFilter = ''
+  request: UserRequest = {
+    first: 0,
+    last: 10,
+    sortField: '',
+    sortOrder: 1,
+    filter: {
+      clientNumber: ''
+    }
+  }
   displayAddModal = false;
   selectedUser: any = null;
-
+  totalRecords: number = 0
   constructor(
     private userService: UserService,
     private confirmationService: ConfirmationService,
@@ -45,14 +60,12 @@ export class ClientsListComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
 
-    this.getUserLList()
-  }
 
   getUserLList() {
-    this.userService.getUserList()
+    this.userService.getUserList(this.request)
       .subscribe(res => {
+        console.log(res)
         this.users = res
       })
   }
@@ -101,5 +114,26 @@ export class ClientsListComponent implements OnInit {
         )
       }
     });
+  }
+
+  loadUsers($event: TableLazyLoadEvent) {
+    console.log($event)
+    this.request.sortField = $event.sortField || '';
+    this.request.sortOrder = $event.sortOrder || 1
+    this.request.first = $event.first || 0
+    this.getUserLList()
+  }
+
+  protected readonly first = first;
+
+  filterUsers() {
+    this.request = {
+      ...this.request,
+      first: 0,
+      filter: {
+        clientNumber: this.globalFilter
+      }
+    }
+    this.getUserLList()
   }
 }

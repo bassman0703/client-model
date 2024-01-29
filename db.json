@@ -1,4 +1,10 @@
 {
+  "first": 1,
+  "prev": null,
+  "next": null,
+  "last": 1,
+  "pages": 1,
+  "items": 11,
   "posts": [
     {
       "id": "1",
@@ -21,7 +27,6 @@
       "postId": "1"
     }
   ],
-  "gets": {},
   "users": [
     {
       "clientNumber": 2343242555444,
@@ -32,7 +37,118 @@
       "phoneNumber": 3213123123,
       "legalAddress": "3213123",
       "actualAddress": "3123213",
+      "img": null,
       "id": "6953"
+    },
+    {
+      "clientNumber": 2343242,
+      "firsName": "dasdas",
+      "lastName": "dasdas",
+      "gender": "male",
+      "personalNumber": 213123123123,
+      "phoneNumber": 3213123123,
+      "legalAddress": "3213123",
+      "actualAddress": "3123213",
+      "id": "6957"
+    },
+    {
+      "clientNumber": 2343242555444,
+      "firsName": "dasdas",
+      "lastName": "dasdas",
+      "gender": "male",
+      "personalNumber": 213123123123,
+      "phoneNumber": 3213123123,
+      "legalAddress": "3213123",
+      "actualAddress": "3123213",
+      "id": "6954"
+    },
+    {
+      "clientNumber": 2343242555444,
+      "firsName": "dasdas",
+      "lastName": "dasdas",
+      "gender": "male",
+      "personalNumber": 213123123123,
+      "phoneNumber": 3213123123,
+      "legalAddress": "3213123",
+      "actualAddress": "3123213",
+      "id": "6954"
+    },
+    {
+      "clientNumber": 2343242555444,
+      "firsName": "dasdas",
+      "lastName": "dasdas",
+      "gender": "male",
+      "personalNumber": 213123123123,
+      "phoneNumber": 3213123123,
+      "legalAddress": "3213123",
+      "actualAddress": "3123213",
+      "id": "6957"
+    },
+    {
+      "clientNumber": 2343242555444,
+      "firsName": "dasdas",
+      "lastName": "dasdas",
+      "gender": "male",
+      "personalNumber": 213123123123,
+      "phoneNumber": 3213123123,
+      "legalAddress": "3213123",
+      "actualAddress": "3123213",
+      "id": "6954"
+    },
+    {
+      "clientNumber": 2343242555444,
+      "firsName": "dasdas",
+      "lastName": "dasdas",
+      "gender": "male",
+      "personalNumber": 213123123123,
+      "phoneNumber": 3213123123,
+      "legalAddress": "3213123",
+      "actualAddress": "3123213",
+      "id": "6954"
+    },
+    {
+      "clientNumber": 2343242555444,
+      "firsName": "dasdas",
+      "lastName": "dasdas",
+      "gender": "male",
+      "personalNumber": 213123123123,
+      "phoneNumber": 3213123123,
+      "legalAddress": "3213123",
+      "actualAddress": "3123213",
+      "id": "6954"
+    },
+    {
+      "clientNumber": 2343242555444,
+      "firsName": "dasdas",
+      "lastName": "dasdas",
+      "gender": "male",
+      "personalNumber": 213123123123,
+      "phoneNumber": 3213123123,
+      "legalAddress": "3213123",
+      "actualAddress": "3123213",
+      "id": "6954"
+    },
+    {
+      "clientNumber": 2343242555444,
+      "firsName": "dasdas",
+      "lastName": "dasdas",
+      "gender": "male",
+      "personalNumber": 213123123123,
+      "phoneNumber": 3213123123,
+      "legalAddress": "3213123",
+      "actualAddress": "3123213",
+      "id": "6954"
+    },
+    {
+      "clientNumber": 2343242555444,
+      "firsName": "dasdas",
+      "lastName": "dasdas",
+      "gender": "male",
+      "personalNumber": 213123123123,
+      "phoneNumber": 3213123123,
+      "legalAddress": "3213123",
+      "actualAddress": "3123213",
+      "id": "6954"
     }
   ]
 }

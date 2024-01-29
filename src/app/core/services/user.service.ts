@@ -1,17 +1,26 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {User} from "../interfaces";
+import {last, Observable} from "rxjs";
+import {User, UserRequest} from "../interfaces";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  url: string = "http://localhost:3000/users"
+  url: string = "http://localhost:3000"
 
   constructor(private http: HttpClient) { }
-  getUserList(): Observable<User[]>  {
-    return this.http.get<User[]>(this.url)
+  getUserList(request: UserRequest): Observable<User[]>  {
+    const {first, last, sortOrder, sortField, filter} = request
+    const page = (first/last) + 1;
+    let urlParams = `_page=${page}1&_limit=${last}`
+    if (sortField){
+        urlParams += `&_sort=${sortField}&_order=${sortOrder === 1 ?'asc' : 'desc'}`
+    }
+    if(filter && filter.clientNumber){
+      urlParams += `&clientNumber_like=${filter.clientNumber}`
+    }
+    return this.http.get<User[]>(`${this.url}/users?${urlParams}`)
   }
   addEditUser(postData: any, selectedUser: any) {
     if ( !selectedUser){

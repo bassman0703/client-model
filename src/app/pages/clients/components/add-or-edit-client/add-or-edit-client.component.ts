@@ -12,6 +12,7 @@ import {MessageService} from "primeng/api";
 import {ToastModule} from "primeng/toast";
 import {Dropdown, DropdownModule} from "primeng/dropdown";
 import {genders} from "../../../../core/enums/gender";
+import {FileUploadModule} from "primeng/fileupload";
 
 @Component({
   selector: 'app-add-or-edit-client',
@@ -27,6 +28,7 @@ import {genders} from "../../../../core/enums/gender";
     FocusTrapModule,
     DropdownModule,
     ToastModule,
+    FileUploadModule,
 
   ],
   providers: [HttpClient, MessageService],
@@ -39,17 +41,17 @@ export class AddOrEditClientComponent implements OnInit, OnChanges {
   @Output() clickClose: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() clicAddEdit: EventEmitter<any> = new EventEmitter<any>();
   modalType = "დამატება"
-  genders$: Dropdown[] = genders
+  genders$ = genders;
   form: FormGroup = this.fb.group({
     clientNumber: ["", Validators.required],
     firsName: ["", Validators.required],
     lastName: ["", Validators.required],
-    gender: ["", Validators.required],
+    gender: ["",Validators.required],
     personalNumber: ["", Validators.required],
     phoneNumber: ["", Validators.required],
     legalAddress: ["", Validators.required],
     actualAddress: ["", Validators.required],
-    // img: ["",Validators.required]
+    img: ([[]])
   })
 
 
